@@ -1,0 +1,26 @@
+body.container-fluid {
+	margin: 0;
+	padding: 0;
+}
+
+#canvas-container {
+	background: -webkit-linear-gradient(#D8D8D8, #6E6E6E);
+	background: -o-linear-gradient(#D8D8D8, #6E6E6E);
+	background: -moz-linear-gradient(#D8D8D8, #6E6E6E);
+	background: linear-gradient(#D8D8D8, #6E6E6E);
+}
+
+.banner {
+	position: absolute;
+	top: 1em;
+	width: 100%;
+}
+
+#introduction-message {
+	width: 100%;
+	color: white;
+	background-color: rgba(0,0,0,0.5);
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	text-align: center;
+}
