@@ -30,7 +30,6 @@ function init (){
 }
 
 function touchStart (e) {
-
     e.stopPropagation();
     e.preventDefault();
 
@@ -42,7 +41,6 @@ function startDraw(e) {
 } 
 
 function touchMove (e){
-
     e.stopPropagation();
     e.preventDefault();
 
@@ -79,16 +77,20 @@ function drawOnCanvas(color, plots) {
     stage.beginPath();
     stage.strokeStyle = color;
     stage.lineWidth = lineWidth;
+
     stage.moveTo(plots[0].x, plots[0].y);   
+
     for(var i=1; i<plots.length; i++) { 
       stage.lineTo(plots[i].x,
        plots[i].y); 
     } 
+
     stage.stroke(); 
 }
 
 function endDraw(e) { 
-    isActive = false;   // empty the array 
+    isActive = false;
+    //Empties array.
     plots = []; 
 }
 
