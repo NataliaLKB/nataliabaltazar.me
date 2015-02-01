@@ -20,6 +20,20 @@ body.container-fluid {
 	width: 100%;
 }
 
+.controls {
+	position: absolute;
+	top: 9em;
+	left: 1em;
+	width: 2em;
+}
+
+@media (max-width: 585px) {
+    .controls {
+		position: absolute;
+		top: 13em;
+	}
+}
+
 #introduction-message {
 	width: 100%;
 	color: white;
@@ -33,6 +47,7 @@ button {
 	border-radius: 0;
 	height: 2em;
 	width: 2em;
+	background-color: #848484;
 }
 button.blue {
 	background-color: $blue;
@@ -52,4 +67,8 @@ button.black {
 
 button.white {
 	background-color: white;
+}
+
+button.plus {
+	margin-top: 1em;
 }
