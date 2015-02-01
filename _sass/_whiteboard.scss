@@ -8,8 +8,19 @@ body.container-fluid {
 }
 
 .socialmedia {
-	width: 5.5em;
+	max-width: 5.5em;
 	position: absolute;
+}
+
+div.col-xs-1 {
+	padding: 0;
+}
+
+@media (max-width: 768px) {
+	.socialmedia {
+		width: 100%;
+		position: relative;
+	}
 }
 
 img.icon {
@@ -17,14 +28,15 @@ img.icon {
 	margin: 0.4em 0 0 0.2em;
 }
 
-p {
+body {
+	p {
 	font-size: 1em;
+	}
+	h1 {
+		font-size: 2em;
+	}
 }
 
-h1 {
-	margin-top: 0;
-	font-size: 2em;
-}
 
 #canvas-container {
 	background: -webkit-linear-gradient(#D8D8D8, #6E6E6E);
@@ -55,7 +67,6 @@ h1 {
 }
 
 #introduction-message {
-	width: 100%;
 	color: white;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
