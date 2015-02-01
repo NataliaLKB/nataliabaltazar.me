@@ -37,6 +37,7 @@
 
         plots.push({x: x, y: y}); 
 
+        //declares what colour for drawing
         drawOnCanvas(blue, plots); 
     }
 
