@@ -12,7 +12,7 @@ body.container-fluid {
 	position: absolute;
 }
 
-div.col-xs-1 {
+div.col-xs-2, div.col-sm-1 {
 	padding: 0;
 }
 
@@ -54,15 +54,15 @@ body {
 
 .controls {
 	position: absolute;
-	top: 9em;
+	top: 10em;
 	left: 1em;
 	width: 2em;
 }
 
-@media (max-width: 585px) {
+@media (max-width: 768px) {
     .controls {
 		position: absolute;
-		top: 13em;
+		top: 13.8em;
 	}
 }
 
@@ -102,3 +102,25 @@ button.white {
 button.plus {
 	margin-top: 1em;
 }
+
+.whiteboard-buttons {
+	position: absolute;
+	top: 7.3em;
+	width: 100%;
+	button {
+		width: 33%;
+		color: white;
+	}
+}
+
+@media (max-width: 768px) {
+	.whiteboard-buttons {
+		top: 8.8em;
+		button {
+			width: 50%;
+			float: left;
+		}
+	}
+}
+
+

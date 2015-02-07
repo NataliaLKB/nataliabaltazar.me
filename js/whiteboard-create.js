@@ -1,18 +1,38 @@
+/*
+* TODO: Change tools (paintbrush, crayon, pen)
+*/
+
 var canvas,
     stage,
-    plots = [],
-    isActive = false,
-    // Declaring colours
-    blue = "#00FFFF",
-    pink = "#FF00FF",
-    white = "#FFFFFF",
-    black = "#000000",
-    yellow = "#FFFF00",
-    colour = blue,
-    //Line Widths
-    lineWidth = 3;
+    plots,
+    isActive,
+    blue,
+    pink,
+    white,
+    black,
+    yellow,
+    colour,
+    lineWidth,
+    whiteboardKey;
+    
+
+plots = [];
+isActive = false;
+
+// Declaring colours
+blue = "#00FFFF";
+pink = "#FF00FF";
+white = "#FFFFFF";
+black = "#000000";
+yellow = "#FFFF00";
+colour = blue;
+
+//Line Widths
+lineWidth = 3;
+
 
 function init (){
+
     canvas = document.getElementById('canvas'); 
 
     stage = canvas.getContext('2d');
@@ -27,6 +47,14 @@ function init (){
 
     canvas.addEventListener('mouseup', endDraw, false);
     canvas.addEventListener('touchend', endDraw, false);
+    
+    if (localStorage.getItem(whiteboardKey) !== null) {
+        console.log("got it!");
+
+        var dataURL = localStorage.getItem(whiteboardKey);
+
+        getLocalStorage(dataURL);
+    }
 }
 
 function touchStart (e) {
@@ -53,11 +81,55 @@ function changeColour (color) {
 }
 
 function lineWidthBigger () {
-    lineWidth += 3;
+    lineWidth += 2;
 }  
 
 function lineWidthSmaller () {
-    lineWidth -= 3;
+    lineWidth -= 2;
+}
+
+function saveLocalStorage () {
+
+    localStorage.setItem(whiteboardKey, canvas.toDataURL());
+}
+
+function getLocalStorage (dataUrl) {
+
+    var img = new Image;
+    img.src = dataUrl;
+
+    img.onload = function () {
+        stage.drawImage(img, 0, 0);
+    };
+}
+
+function deleteLocalStorage () {
+
+    localStorage.removeItem(whiteboardKey);
+
+    stage.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function saveAsImage () {
+    // save canvas image as data url (png format by default)
+    // var dataURL = canvas.toDataURL();
+
+    var myCanvas = document.getElementById("canvas");
+    var image = canvas.toDataURL("image/jpeg");
+
+    document.write('<img src="'+image+'"/>');
+
+
+    var image = myCanvas.toDataURL("image/png");
+    var downloadImage = image.replace("image/png", "image/octet-stream");
+
+    window.location.href = image;
+
+      // set canvasImg image src to dataURL
+      // so it can be saved as an image
+    // document.getElementById('canvasImg').src = dataURL;
+
+    // '<a href="" download="natalias-whiteboard.png">'
 }
 
 function draw(e) { 
@@ -98,3 +170,8 @@ function endDraw(e) {
 window.onload = function () {
 	init();
 }
+
+
+
+
+
